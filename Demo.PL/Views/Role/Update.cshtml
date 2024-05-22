@@ -1,0 +1,26 @@
+﻿@model RoleViewModel
+
+<div class="container">
+    <br />
+    <h1>Edit Role</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-controller="Role" asp-action="Update" enctype="multipart/form-data">
+                <partial name="PartialView/Create_Edit_PartialView" />
+                <a asp-controller="Role" asp-action="AddOrRemoveUser" asp-route-roleId="@Model.ID" class="btn btn-success mr-3">Add Or Remove User</a>
+
+                <div class="mt-5">
+                    @* <input type="hidden" asp-for="ImageName" /> *@
+                    <input type="submit" value="Save" class="btn btn-primary mr-3" />
+                    <a asp-controller="Role" asp-action="Index" class="btn btn-light mr-3">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}

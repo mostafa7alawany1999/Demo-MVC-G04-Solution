@@ -1,0 +1,88 @@
+﻿@model SignUpViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+@* 	<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form asp-action="SignUp">
+					<input class="text" asp-for="UserName" placeholder="Username" required="">
+		<input class="text" asp-for="FirstName" placeholder="First Name" required="">
+		<input class="text" asp-for="LastName" placeholder="Last Name" required="">
+		<input class="tex email" asp-for="Email" placeholder="Email" required="">
+		<input class="text w3lpass" asp-for="Password" placeholder="Password" required="">
+		<input class="text w3lpass" asp-for="ConfirmPassword" placeholder="ConfirmPassword" required="">
+					<div class="wthree-text">
+						<label class="anim">
+							<input asp-for="IsAgree" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>Don't have an Account? <a asp-action="SignIn"> Login Now!</a></p>
+			</div>
+		</div>
+ *@
+
+<div class="main-agileinfo">
+	<div  asp-validation-summary="All"></div>
+<div class="agileits-top">
+
+<form asp-action="SignUp">
+	<h2>SignUp</h2>
+    <div class="input-field">
+				<span asp-validation-for="UserName" class="text-danger"> </span>
+				<input class="text" asp-for="UserName" placeholder="UserName" required="">
+   </div>
+
+	<div class="input-field">
+				<span asp-validation-for="FirstName" class="text-danger"> </span>
+				<input class="text" asp-for="FirstName" placeholder="FirstName" required="">
+	</div>
+
+	<div class="input-field">
+				<span asp-validation-for="LastName" class="text-danger"> </span>
+				<input class="text" asp-for="LastName" placeholder="LastName" required="">
+	</div>	
+	
+	<div class="input-field">
+				<span asp-validation-for="Email" class="text-danger"> </span>
+				<input class="tex email" asp-for="Email" placeholder="Email" required="">
+	</div>
+
+    <div class="input-field">
+				<span asp-validation-for="Password" class="text-danger"> </span>
+				<input class="text w3lpass" asp-for="Password" placeholder="Password" required="">
+   </div>
+
+    <div class="input-field">
+				<span asp-validation-for="ConfirmPassword" class="text-danger"> </span>
+				<input class="text w3lpass" asp-for="ConfirmPassword" placeholder="ConfirmPassword" required="">
+    </div>
+
+		<div class="wthree-text">
+			<label class=" background: transparent;">
+				<input asp-for="IsAgree" class="checkbox" required="">
+				<span style="color :aliceblue">I Agree To The Terms & Conditions</span>
+					<br />
+
+			</label>
+		  <div class="clear"> </div>
+	   </div>
+			<br />
+			<button type="submit">Sign Up</button>
+    </form>
+		<div class="register" >
+			<p> Have an Account? <a asp-action="SignIn" style="color:dodgerblue"> SignIn Now!</a></p>
+		</div>
+	</div>
+	</div>
+
+@section ValidationSection {
+	<script  src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script  src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

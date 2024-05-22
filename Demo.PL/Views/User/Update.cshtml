@@ -1,0 +1,30 @@
+﻿@model UserViewModel
+
+
+
+
+
+
+
+<div class="container">
+    <br />
+    <h1>Edit User</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-controller="User" asp-action="Update" method="post" enctype="multipart/form-data">
+                <partial name="PartialView/Create_Edit_PartialView" />
+                <div class="mt-5">
+                    @* <input type="hidden" asp-for="ImageName" /> *@
+                    <input type="submit" value="Save" class="btn btn-primary mr-3" />
+                    <a asp-controller="User" asp-action="Index" class="btn btn-light mr-3">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}

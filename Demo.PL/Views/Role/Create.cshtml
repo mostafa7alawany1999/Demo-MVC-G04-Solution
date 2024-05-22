@@ -1,0 +1,28 @@
+﻿@model RoleViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <br />
+    <h1>Create Role</h1>
+    <br />
+
+    <hr />
+
+    <form asp-controller="Role" asp-action="Create" class="m-2">
+        <partial name="PartialView/Create_Edit_PartialView" />
+        <br />
+        <div class="mt-2">
+            <input type="submit" value="Create" class="btn btn-primary mr-3" />
+            <a asp-controller="Role" asp-action="Index" class="btn btn-light">Back to List</a>
+        </div>
+    </form>
+
+</div>
+
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}

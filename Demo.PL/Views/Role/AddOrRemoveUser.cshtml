@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "AddOrRemoveUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<UsersInRoleViewModel>
+
+
+@{
+    var RoleId = ViewData["RoleId"] as string;
+    var RoleName = TempData["RoleName"] as string;
+}
+<div class="container">
+
+    <br />
+    
+
+    <div>
+        <hr />
+        <nav class="row">
+            <dl class="row col-6 m-1">
+
+                <dt class="col-sm-6">
+                    <label>@RoleName</label>
+                </dt>
+
+                <dt class="col-sm-6">
+                    <label>UserName</label>
+
+                </dt>
+            </dl>
+        </nav>
+        <form asp-action="AddOrRemoveUser" asp-route-roleId="@RoleId">
+            <nav class="col">
+                <dl class="col col-6 m-0">
+                    <div class="form-group row ">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <dd class=" col-sm-6">
+                                <input asp-for="@Model[i].IsSelected" />
+                            </dd>
+                            <dd class="col-sm-6">
+                                <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+                            </dd>
+                            <input type="hidden" asp-for="@Model[i].UserId" />
+                            <input type="hidden" asp-for="@Model[i].UserName" />
+
+                        }
+
+                    </div>
+                </dl>
+            </nav>
+            <div>
+                <input type="submit" value="Update" class="btn btn-success" />
+                <a asp-controller="Role" asp-action="Index"  class="btn btn-light" style="margin-left:20px">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+
+
